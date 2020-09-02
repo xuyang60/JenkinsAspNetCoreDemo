@@ -1,4 +1,5 @@
 ﻿@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment webHostEnvironment;
+@inject Microsoft.Extensions.Configuration.IConfiguration configuration;
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -11,6 +12,6 @@
     <h4>操作系统： @Environment.OSVersion</h4>
     <h5>请求IP：@Context.Connection.RemoteIpAddress.ToString()</h5>
     <h6>@Environment.UserDomainName</h6>
-    <h7>33333</h7>
+    <h7>testKey： @configuration.GetSection("testKey")?.Value</h7>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
